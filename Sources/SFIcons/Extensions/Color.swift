@@ -54,13 +54,6 @@ struct CodableColor: Codable {
     }
 }
 
-extension UIColor {
-
-    var codableColor: CodableColor {
-        CodableColor(uiColor: self)
-    }
-}
-
 extension Color {
 
     init(codableColor: CodableColor) {

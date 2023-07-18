@@ -18,26 +18,26 @@ struct SFIconView: View {
     }
     
     @ViewBuilder
-    private func emojiView(_ string: String, proxy g: GeometryProxy) -> some View {
+    private func emojiView(_ string: String, proxy: GeometryProxy) -> some View {
         Text(string)
             .font(.system(
-                size: g.size.height > g.size.width ? g.size.width * 0.55 : g.size.height * 0.55)
+                size: proxy.size.height > proxy.size.width ? proxy.size.width * 0.55 : proxy.size.height * 0.55)
             )
             .lineLimit(1)
     }
     
     @ViewBuilder
-    private func symbolView(_ systemName: String, proxy g: GeometryProxy) -> some View {
+    private func symbolView(_ systemName: String, proxy: GeometryProxy) -> some View {
         Image(systemName: systemName)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: g.size.width * 0.6, height: g.size.height * 0.6, alignment: .center)
+            .frame(width: proxy.size.width * 0.6, height: proxy.size.height * 0.6, alignment: .center)
             .foregroundStyle(sfIcon.iconStyle.swiftUIStyle)
             .eraseToAnyView()
     }
     
     var body: some View {
-        GeometryReader { g in
+        GeometryReader { proxy in
             ZStack(alignment: .center) {
                 
                 shapeView
@@ -46,47 +46,11 @@ struct SFIconView: View {
                 
                 switch sfIcon.icon {
                 case .string(let string):
-                    emojiView(string, proxy: g)
+                    emojiView(string, proxy: proxy)
                 case .sfSymbol(let systemName):
-                    symbolView(systemName, proxy: g)
+                    symbolView(systemName, proxy: proxy)
                 }
             }
         }
     }
-}
-
-struct SFIconPreview: View {
-    
-    @State
-    private var iconWidth: CGFloat = 150
-    
-    private let icon = SFIcon(
-        icon: .string("😤"),
-        iconStyle: .color(.red),
-        shape: .circle,
-        shapeStyle: .angularGradient(
-            colors: [.red, .orange, .yellow, .green, .blue, .purple, .red],
-            center: .center,
-            startAngle: .zero,
-            endAngle: Angle(degrees: 360)
-        )
-    )
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            
-            SFIconView(sfIcon: icon)
-                .frame(width: iconWidth, height: iconWidth)
-            
-            Spacer()
-            
-            Slider(value: $iconWidth, in: 50 ... 300)
-                .padding()
-        }
-    }
-}
-
-#Preview {
-    SFIconPreview()
 }
