@@ -1,18 +1,13 @@
-//
-//  Color.swift
-//  SFIcons
-//
-
 import SwiftUI
 
 extension Color: Codable {
-    
+
     public init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
         let codableColor = try container.decode(CodableColor.self)
         self = Color(codableColor: codableColor)
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.unkeyedContainer()
         try container.encode(codableColor)
@@ -48,7 +43,7 @@ struct CodableColor: Codable {
         self.blue = b
         self.alpha = a
     }
-    
+
     init(color: Color) {
         self.init(uiColor: UIColor(color))
     }
@@ -59,7 +54,7 @@ extension Color {
     init(codableColor: CodableColor) {
         self.init(uiColor: codableColor.uiColor)
     }
-    
+
     var codableColor: CodableColor {
         CodableColor(color: self)
     }

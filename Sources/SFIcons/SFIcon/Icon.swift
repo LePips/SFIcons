@@ -1,17 +1,12 @@
-//
-//  Icon.swift
-//  SFIcons
-//
-
 import Foundation
 
 extension SFIcon {
-    
+
     enum Icon: Codable, Equatable, Hashable {
-        
+
         case string(String)
         case sfSymbol(systemName: String)
-        
+
         func isSameCase(_ rhs: Icon) -> Bool {
             switch (self, rhs) {
             case (.string, .string):
@@ -22,12 +17,12 @@ extension SFIcon {
                 false
             }
         }
-        
-        static func ==(lhs: Icon, rhs: Icon) -> Bool {
+
+        static func == (lhs: Icon, rhs: Icon) -> Bool {
             switch (lhs, rhs) {
-            case (.string(let ls), .string(let rs)):
+            case let (.string(ls), .string(rs)):
                 ls == rs
-            case (.sfSymbol(systemName: let lsn), .sfSymbol(systemName: let rsn)):
+            case let (.sfSymbol(systemName: lsn), .sfSymbol(systemName: rsn)):
                 lsn == rsn
             default:
                 false

@@ -1,14 +1,9 @@
-//
-//  SFIconView.swift
-//  SFIcons
-//
-
 import SwiftUI
 
 struct SFIconView: View {
-    
+
     let sfIcon: SFIcon
-    
+
     @ViewBuilder
     private var shapeView: any View {
         sfIcon
@@ -16,16 +11,18 @@ struct SFIconView: View {
             .swiftUIShape
             .foregroundStyle(sfIcon.shapeStyle.swiftUIStyle)
     }
-    
+
     @ViewBuilder
     private func emojiView(_ string: String, proxy: GeometryProxy) -> some View {
         Text(string)
-            .font(.system(
-                size: proxy.size.height > proxy.size.width ? proxy.size.width * 0.55 : proxy.size.height * 0.55)
+            .font(
+                .system(
+                    size: proxy.size.height > proxy.size.width ? proxy.size.width * 0.55 : proxy.size.height * 0.55
+                )
             )
             .lineLimit(1)
     }
-    
+
     @ViewBuilder
     private func symbolView(_ systemName: String, proxy: GeometryProxy) -> some View {
         Image(systemName: systemName)
@@ -35,19 +32,19 @@ struct SFIconView: View {
             .foregroundStyle(sfIcon.iconStyle.swiftUIStyle)
             .eraseToAnyView()
     }
-    
+
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .center) {
-                
+
                 shapeView
                     .eraseToAnyView()
                     .shadow(radius: 10)
-                
+
                 switch sfIcon.icon {
-                case .string(let string):
+                case let .string(string):
                     emojiView(string, proxy: proxy)
-                case .sfSymbol(let systemName):
+                case let .sfSymbol(systemName):
                     symbolView(systemName, proxy: proxy)
                 }
             }
