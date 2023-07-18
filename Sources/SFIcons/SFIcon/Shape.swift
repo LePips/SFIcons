@@ -1,27 +1,27 @@
 import SwiftUI
 
-extension SFIcon {
+public extension SFIcon {
 
     enum Shape: Codable, Equatable, Hashable {
 
         case circle
         case roundedRectangle(cornerRadius: CGFloat)
 
-        var swiftUIShape: any SwiftUI.Shape {
+        public var swiftUIShape: any SwiftUI.Shape {
             switch self {
             case .circle:
-                Circle()
+                return Circle()
             case let .roundedRectangle(cornerRadius: cornerRadius):
-                RoundedRectangle(cornerRadius: cornerRadius)
+                return RoundedRectangle(cornerRadius: cornerRadius)
             }
         }
 
-        func isSameCase(_ rhs: Shape) -> Bool {
+        public func isSameCase(_ rhs: Shape) -> Bool {
             switch (self, rhs) {
             case (.circle, .circle), (.roundedRectangle, .roundedRectangle):
-                true
+                return true
             default:
-                false
+                return false
             }
         }
     }

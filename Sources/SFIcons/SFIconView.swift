@@ -1,8 +1,12 @@
 import SwiftUI
 
-struct SFIconView: View {
+public struct SFIconView: View {
 
-    let sfIcon: SFIcon
+    private let sfIcon: SFIcon
+
+    public init(sfIcon: SFIcon) {
+        self.sfIcon = sfIcon
+    }
 
     @ViewBuilder
     private var shapeView: any View {
@@ -33,7 +37,7 @@ struct SFIconView: View {
             .eraseToAnyView()
     }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .center) {
 

@@ -20,7 +20,11 @@ class UISFIconTextField: UITextField {
 public struct SFIconEmojiTextField: UIViewRepresentable {
 
     @Binding
-    var text: String
+    private var text: String
+
+    public init(text: Binding<String>) {
+        self._text = text
+    }
 
     public func makeUIView(context: Context) -> some UIView {
         let textField = UISFIconTextField()

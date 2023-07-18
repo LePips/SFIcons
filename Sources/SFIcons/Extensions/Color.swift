@@ -1,5 +1,11 @@
 import SwiftUI
 
+#if os(macOS)
+typealias SystemColor = NSColor
+#else
+typealias SystemColor = UIColor
+#endif
+
 extension Color: Codable {
 
     public init(from decoder: Decoder) throws {
@@ -22,14 +28,39 @@ struct CodableColor: Codable {
     var alpha: Double = 0.0
 
     var color: Color {
+        #if os(macOS)
+        Color(nsColor: uiColor)
+        #else
         Color(uiColor: uiColor)
+        #endif
     }
 
-    var uiColor: UIColor {
-        UIColor(red: red, green: green, blue: blue, alpha: alpha)
+//    #if os(macOS)
+
+//    #else
+    var uiColor: SystemColor {
+        SystemColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 
-    init(uiColor: UIColor) {
+//    #endif
+
+//    #if os(macOS)
+//    init(uiColor: NSColor) {
+//
+//        var r: CGFloat = 0
+//        var g: CGFloat = 0
+//        var b: CGFloat = 0
+//        var a: CGFloat = 0
+//
+//        uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+//
+//        self.red = r
+//        self.green = g
+//        self.blue = b
+//        self.alpha = a
+//    }
+//    #else
+    init(uiColor: SystemColor) {
 
         var r: CGFloat = 0
         var g: CGFloat = 0
@@ -44,15 +75,21 @@ struct CodableColor: Codable {
         self.alpha = a
     }
 
+//    #endif
+
     init(color: Color) {
-        self.init(uiColor: UIColor(color))
+        self.init(uiColor: SystemColor(color))
     }
 }
 
 extension Color {
 
     init(codableColor: CodableColor) {
+        #if os(macOS)
+        self.init(nsColor: codableColor.uiColor)
+        #else
         self.init(uiColor: codableColor.uiColor)
+        #endif
     }
 
     var codableColor: CodableColor {

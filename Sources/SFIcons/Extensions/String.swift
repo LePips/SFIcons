@@ -20,7 +20,7 @@ extension Character {
 
 extension String {
 
-    var isSingleEmoji: Bool {
+    public var isSingleEmoji: Bool {
         count == 1 && containsEmoji
     }
 
@@ -42,12 +42,12 @@ extension String {
         return self[index]
     }
 
-    static func randomEmoji() -> String {
+    public static func randomEmoji() -> String {
         String(Character(contiguousEmoji.randomElement()!))
     }
 }
 
-fileprivate let contiguousEmoji: [UnicodeScalar] = {
+private let contiguousEmoji: [UnicodeScalar] = {
 
     let ranges: [ClosedRange<Int>] = [
         0x1F600 ... 0x1F64F,
@@ -72,12 +72,3 @@ fileprivate let contiguousEmoji: [UnicodeScalar] = {
 
     return ranges.reduce([], +).map { UnicodeScalar($0)! }
 }()
-
-public extension UnsafeMutableRawPointer {
-
-    var asEmoji: String {
-        // Inspired by https://gist.github.com/iandundas/59303ab6fd443b5eec39
-        let index = abs(self.hashValue) % contiguousEmoji.count
-        return String(contiguousEmoji[index])
-    }
-}
