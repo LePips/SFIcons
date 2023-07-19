@@ -6,6 +6,21 @@ typealias SystemColor = NSColor
 typealias SystemColor = UIColor
 #endif
 
+extension Color {
+
+    init(codableColor: CodableColor) {
+        #if os(macOS)
+        self.init(nsColor: codableColor.systemColor)
+        #else
+        self.init(uiColor: codableColor.systemColor)
+        #endif
+    }
+
+    var codableColor: CodableColor {
+        CodableColor(color: self)
+    }
+}
+
 extension Color: Codable {
 
     public init(from decoder: Decoder) throws {
@@ -29,45 +44,24 @@ struct CodableColor: Codable {
 
     var color: Color {
         #if os(macOS)
-        Color(nsColor: uiColor)
+        Color(nsColor: systemColor)
         #else
-        Color(uiColor: uiColor)
+        Color(uiColor: systemColor)
         #endif
     }
 
-//    #if os(macOS)
-
-//    #else
-    var uiColor: SystemColor {
+    var systemColor: SystemColor {
         SystemColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 
-//    #endif
-
-//    #if os(macOS)
-//    init(uiColor: NSColor) {
-//
-//        var r: CGFloat = 0
-//        var g: CGFloat = 0
-//        var b: CGFloat = 0
-//        var a: CGFloat = 0
-//
-//        uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
-//
-//        self.red = r
-//        self.green = g
-//        self.blue = b
-//        self.alpha = a
-//    }
-//    #else
-    init(uiColor: SystemColor) {
+    init(systemColor: SystemColor) {
 
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
         var a: CGFloat = 0
 
-        uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+        systemColor.getRed(&r, green: &g, blue: &b, alpha: &a)
 
         self.red = r
         self.green = g
@@ -75,24 +69,7 @@ struct CodableColor: Codable {
         self.alpha = a
     }
 
-//    #endif
-
     init(color: Color) {
-        self.init(uiColor: SystemColor(color))
-    }
-}
-
-extension Color {
-
-    init(codableColor: CodableColor) {
-        #if os(macOS)
-        self.init(nsColor: codableColor.uiColor)
-        #else
-        self.init(uiColor: codableColor.uiColor)
-        #endif
-    }
-
-    var codableColor: CodableColor {
-        CodableColor(color: self)
+        self.init(systemColor: SystemColor(color))
     }
 }
