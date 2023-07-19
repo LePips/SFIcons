@@ -6,7 +6,7 @@ Generate simple icons using SFSymbols, emojis, or text. Just like Contacts and R
 
 ## Usage
 
-Create an `SFIcon` definition and use within an `SFIconview`. Text modifiers still apply to the underlying `SFSymbol` image and `Text`.
+Simply create an `SFIcon` and use within an `SFIconview`. Modifiers still apply to the underlying SFSymbol `Image` and `Text` for further native customization.
 
 ```swift
 let sfIcon: SFIcon = SFIcon(
@@ -20,13 +20,13 @@ let sfIcon: SFIcon = SFIcon(
 
 var body: some View {
     SFIconView(sfIcon: sfIcon)
-        .fontWeight(.heavy)
+        .fontWeight(.heavy) // The SFSymbol font will be heavy
 }
 ```
 
 ### Customization
 
-An icon can be a defined `SFSymbol` or `String`. The view can fit about 2 uppercased characters comfortably.
+An icon can be a defined SFSymbol `systemName` or `String`, about 2 uppercased characters can fit comfortably.
 
 | `.sfSymbol("figure.run")`  | `.string("😂")` | `.string("SJ")` |
 | ------------- | ------------- | ------------- |
