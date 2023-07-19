@@ -12,11 +12,12 @@ struct ContentView: View {
     )
 
     var body: some View {
-        VStack(spacing: 100) {
+        VStack(spacing: 20) {
 
             SFIconView(sfIcon: sfIcon)
                 .fontWeight(.medium)
-                .frame(width: 500, height: 500)
+                .frame(width: 300, height: 300)
+                .padding()
 
             Button {
                 let randomIcon: SFIcon.Icon = [
@@ -47,7 +48,7 @@ struct ContentView: View {
                 Image(systemName: "dice.fill")
                     .resizable()
                     .padding()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 70, height: 70)
             }
             .buttonStyle(.plain)
         }
