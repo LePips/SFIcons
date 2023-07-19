@@ -1,4 +1,4 @@
-![banner](https://github.com/LePips/SFIcons/assets/20747774/ec99dcc9-7eb6-4789-b9fc-7f554b11adbe)
+![banner](https://github.com/LePips/SFIcons/assets/20747774/0416bc57-292f-4c35-9438-7fdcfb098e7a)
 
 # SFIcons
 
@@ -30,10 +30,10 @@ An icon can be a defined `SFSymbol` or `String`. The view can fit about 2 upperc
 
 | `.sfSymbol("figure.run")`  | `.string("😂")` | `.string("SJ")` |
 | ------------- | ------------- | ------------- |
-| <img width="200" alt="sfSymbol Example" src="https://github.com/LePips/SFIcons/assets/20747774/7cbd9321-23e0-4109-84eb-25c17d2f1aac">  | <img width="200" alt="string emoji example" src="https://github.com/LePips/SFIcons/assets/20747774/2b10ab70-eb75-476e-b7a5-6feaf9d0609c">  | <img width="200" alt="string initials example" src="https://github.com/LePips/SFIcons/assets/20747774/bf6cc3a3-11d5-477b-90c2-57434a53ecd5"> |
+| <img width="200" alt="29DE0B2C-2FBE-494A-8ECD-E78F8A1E16D8" src="https://github.com/LePips/SFIcons/assets/20747774/cf4198bd-62e4-4716-84c0-2c68e80e8875"> | <img width="200" alt="0AC4AB47-0865-4DA6-A9A7-FCB9D2289476" src="https://github.com/LePips/SFIcons/assets/20747774/84cce308-d0e8-49dc-8e5a-14310899b6bd">  | <img width="200" alt="88512527-A41A-4F0F-83C5-F7FD902647D0" src="https://github.com/LePips/SFIcons/assets/20747774/efc25e58-692a-4509-995f-d9ec4c7c7245"> |
 
 ## Example
 
 A sample project is provided for iOS, tvOS, and macOS. tvOS and macOS will generate a random icon and iOS has a customizable view that replicates the list creation from Reminders with emoji and text icon input.
 
-<img width="30%" alt="iOS example" src="https://github.com/LePips/SFIcons/assets/20747774/75870428-e046-45b7-86dc-87400df3fc09">
+<img width="30%" alt="iOS example" src="https://github.com/LePips/SFIcons/assets/20747774/894b7bd8-0176-4e41-992e-79182564926c">
