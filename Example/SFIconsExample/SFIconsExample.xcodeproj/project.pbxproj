@@ -20,6 +20,7 @@
 		E1C59C2A2A673CFF0061F54F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C59C292A673CFF0061F54F /* Assets.xcassets */; };
 		E1C59C322A673D330061F54F /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C59C042A673C3B0061F54F /* Defaults.swift */; };
 		E1C59C342A673D470061F54F /* SFIcons in Frameworks */ = {isa = PBXBuildFile; productRef = E1C59C332A673D470061F54F /* SFIcons */; };
+		E1C59C362A67A42C0061F54F /* Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C59C352A67A42C0061F54F /* Snapshot.swift */; };
 		E1C754882A67373A005B8928 /* tvOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C754872A67373A005B8928 /* tvOSApp.swift */; };
 		E1C7548A2A67373A005B8928 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C754892A67373A005B8928 /* ContentView.swift */; };
 		E1C7548C2A67373A005B8928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C7548B2A67373A005B8928 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		E1C59C272A673CFE0061F54F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E1C59C292A673CFF0061F54F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1C59C2E2A673CFF0061F54F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E1C59C352A67A42C0061F54F /* Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
 		E1C754802A67371D005B8928 /* SFIcons */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SFIcons; path = ../..; sourceTree = "<group>"; };
 		E1C754852A673739005B8928 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C754872A67373A005B8928 /* tvOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSApp.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				E1C59C252A673CFE0061F54F /* macOSApp.swift */,
 				E1C59C272A673CFE0061F54F /* ContentView.swift */,
+				E1C59C352A67A42C0061F54F /* Snapshot.swift */,
 				E1C59C292A673CFF0061F54F /* Assets.xcassets */,
 				E1C59C2E2A673CFF0061F54F /* macOS.entitlements */,
 			);
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1C59C322A673D330061F54F /* Defaults.swift in Sources */,
+				E1C59C362A67A42C0061F54F /* Snapshot.swift in Sources */,
 				E1C59C282A673CFE0061F54F /* ContentView.swift in Sources */,
 				E1C59C262A673CFE0061F54F /* macOSApp.swift in Sources */,
 			);

@@ -13,7 +13,7 @@ public struct ContentView: View {
     @State
     private var emojiFieldText: String = ""
     @State
-    private var selectedIcon: SFIcon.Icon = .sfSymbol(systemName: "list.bullet")
+    private var selectedIcon: SFIcon.Icon = .sfSymbol("list.bullet")
     @State
     private var selectedIconStyle: SFIcon.Style = .color(.white)
     @State
@@ -24,7 +24,7 @@ public struct ContentView: View {
     private var selectedStyleModifer: Int = 0
     @State
     private var sfIcon: SFIcon = .init(
-        icon: .sfSymbol(systemName: "list.bullet"),
+        icon: .sfSymbol("list.bullet"),
         iconStyle: .color(.white),
         shape: .circle,
         shapeStyle: .color(.red)
@@ -199,7 +199,7 @@ public struct ContentView: View {
                         Circle()
                             .strokeBorder(
                                 .secondary,
-                                lineWidth: (selectedIcon == .sfSymbol(systemName: systemName) && !isEmojiFieldFocused) ? 3 : 0
+                                lineWidth: (selectedIcon == .sfSymbol(systemName) && !isEmojiFieldFocused) ? 3 : 0
                             )
                             .frame(width: 50, height: 50)
 
@@ -215,7 +215,7 @@ public struct ContentView: View {
                         isEmojiFieldFocused = false
 
                         withAnimation(.linear(duration: 0.1)) {
-                            selectedIcon = .sfSymbol(systemName: systemName)
+                            selectedIcon = .sfSymbol(systemName)
                         }
                     }
                 }
@@ -261,7 +261,7 @@ public struct ContentView: View {
                         isEmojiFieldFocused = false
 
                         let randomIcon: SFIcon.Icon = [
-                            .sfSymbol(systemName: Self.DefaultSystemNames.randomElement()!),
+                            .sfSymbol(Self.DefaultSystemNames.randomElement()!),
                             .string(String.randomEmoji()),
                         ]
                             .randomElement()!

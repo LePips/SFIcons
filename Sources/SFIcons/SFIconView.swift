@@ -43,7 +43,6 @@ public struct SFIconView: View {
 
                 shapeView
                     .eraseToAnyView()
-                    .shadow(radius: 10)
 
                 switch sfIcon.icon {
                 case let .string(string):

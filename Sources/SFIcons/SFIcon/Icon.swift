@@ -5,7 +5,7 @@ public extension SFIcon {
     enum Icon: Codable, Equatable, Hashable {
 
         case string(String)
-        case sfSymbol(systemName: String)
+        case sfSymbol(String)
 
         public func isSameCase(_ rhs: Icon) -> Bool {
             switch (self, rhs) {
